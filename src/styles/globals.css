@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html {
+  background-color: white;
+}
+
+/* shadows  */
+.reviewCardShadow {
+  box-shadow: -1px 1px 14px -4px rgba(0, 0, 0, 0.75);
+}
+
+/* =====> styles for drawer */
+.drawer {
+  width: 50% !important;
+  background-color: #101014 !important;
+}
+.slick-prev,
+.slick-next {
+  top: 45% !important;
+}
+
+.slick-prev::before {
+  color: #fd4c1d !important;
+}
+.slick-next::before {
+  color: #fd4c1d !important;
+}
+.sldierCard {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.slick-dots li button:before {
+  font-size: 10px !important;
+  color: #fd4c1d !important;
+}
+
+.slick-list {
+  min-height: 410px !important;
+}
+@media screen and (max-width: 800px) {
+  .slick-prev {
+    left: -10px !important;
+  }
+  .slick-next {
+    right: -10px !important;
+  }
+  .slick-list {
+    height: 400px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .slick-prev {
+    left: -5px !important;
+  }
+  .slick-next {
+    right: -5px !important;
+  }
+}
+/* =====> swiper css end here */
+@media screen and (max-width: 700px) {
+  .drawer {
+    width: 70% !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .drawer {
+    width: 100% !important;
+  }
+}
+
+/* scroll bar style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  background-color: #fd4c1d;
+}
+/* ======> specific div scroll bar */
+
+.srollBar::-webkit-scrollbar {
+  width: 8px;
+}
+.srollBar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 30px;
+}
+.srollBar::-webkit-scrollbar-thumb {
+  background-color: #fd4c1d;
+  border-radius: 30px;
+}
+/* =====> faq styles */
+.faq-title {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-transform: uppercase !important;
+}
+.faq-title h2 {
+  font-size: 34px !important;
+  margin-bottom: 10px !important;
+  font-weight: 600 !important;
+  font-family: inter;
+}
+.row-title-text {
+  font-family: inter;
+  font-size: 18px !important;
+  user-select: none;
+}
+.row-content-text {
+  font-family: inter;
+  font-size: 16px !important;
+  color: #fd4c1d !important;
+  user-select: none;
+}
+@media screen and (max-width: 400px) {
+  .row-title-text {
+    font-size: 16px !important;
+  }
+  .slick-next {
+    right: -5px !important;
+  }
+}
