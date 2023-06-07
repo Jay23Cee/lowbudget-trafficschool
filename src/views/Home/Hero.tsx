@@ -44,7 +44,7 @@ function Hero() {
                 className="w-full h-[55px] border-[3px] placeholder:text-[18px] placeholder:font-medium text-[18px] font-inter font-medium px-2 rounded-[10px] focus:outline-none border-brand-primary"
                 type="text"
                 id="select-state"
-                value={location}
+                defaultValue={location}
                 placeholder="Select State"
               />
               <FiChevronDown className="text-[28px] text-[#afb4be] absolute right-3" />
@@ -96,20 +96,9 @@ function Hero() {
         </div>
         {/* ===> */}
         <div className="flex flex-col">
-          <p className="text-[16px] md:text-[20px] font-inter uppercase font-semibold text-white-main">
-            <span className="text-brand-primary">
-              {" "}
-              TRY OUR COURSE FOR FREE!{" "}
-            </span>
-            IF YOU&apos;RE NOT TOTALLY SATISFIED BEFORE TAKING THE FINAL EXAM,
-            DON &&apos; T PAY!*
-          </p>
-          {/* ====> here will come link */}
-          <Link href="#" className="">
-            <p className="text-[16px] md:text-[20px] font-inter text-brand-primary font-semibold underline">
-              link for the free course
-            </p>
-          </Link>
+
+  
+
 
         </div>
       </div>

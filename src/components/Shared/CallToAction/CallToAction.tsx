@@ -43,7 +43,7 @@ function CallToAction() {
                 className="w-full h-[55px] border-[3px] placeholder:text-[18px] placeholder:font-medium text-[18px] font-inter font-medium px-2 rounded-[10px] focus:outline-none border-brand-primary"
                 type="text"
                 id="select-state"
-                value={location}
+                defaultValue={location}
                 placeholder="Select State"
               />
               <FiChevronDown className="text-[28px] text-[#afb4be] absolute right-3" />

@@ -21,16 +21,10 @@ function Footer() {
         </div>
         {/* ====> social icons */}
         <div className="flex justify-center items-center gap-6 -mt-12 sm:-mt-10">
-          {Social.map((item, index) => {
-            return (
-              <Link key={index} href="#">
-                {item.path}
-              </Link>
-            );
-          })}
+
         </div>
         <p className="text-[16px] text-center font-medium font-inter text-black-main">
-          © 1997-2023 DriversEd.com. All rights reserved. Please see our privacy
+          © 2023 Lowbudgettrafficschool.com. All rights reserved. Please see our privacy
           policy for more details.
         </p>
       </div>
@@ -38,22 +32,6 @@ function Footer() {
   );
 }
 
-const Social = [
-  {
-    path: (
-      <BsTwitter className="text-[30px] sm:text-[40px] text-black-main hover:scale-110 duration-300" />
-    ),
-  },
-  {
-    path: (
-      <AiFillInstagram className="text-[30px] sm:text-[40px] text-black-main hover:scale-110 duration-300" />
-    ),
-  },
-  {
-    path: (
-      <BsFacebook className="text-[30px] sm:text-[40px] text-black-main hover:scale-110 duration-300" />
-    ),
-  },
-];
+
 
 export default Footer;

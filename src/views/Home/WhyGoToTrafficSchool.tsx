@@ -7,23 +7,13 @@ function WhyGoToTrafficSchool() {
     <Wrapper styles="py-10">
       <div className="w-full flex flex-col gap-4 md:gap-6 justify-center items-center">
         <p className="text-[28px] md:text-[34px] text-center uppercase font-semibold font-poppins">
-          why go to traffic school?
+          Why Go to Traffic School?
         </p>
         <p className="text-[16px] md:text-[22px] font-inter font-medium text-center">
-          Traffic School & Defensive Driving Courses: Keep your insurance rates
-          low the right way, <br /> with one of our quick and easy traffic
-          school courses!
+          Discover the Benefits of Traffic School:
         </p>
         <p className="text-[16px] md:text-left text-center md:text-[18px] font-normal font-inter">
-          GoToTrafficSchool has been an expert in online traffic school since
-          1999. We offer online traffic school, defensive driving, driver
-          improvement, insurance reduction and mature driver safety courses in
-          over 25 states across the country, as well as through thousands of
-          individual courts in states where online traffic school courses may
-          not be approved. If you&apos;re unsure whether or not your court approves
-          online traffic school, ask one of our [online agents] or call us at
-          888.329.7069. Our DMV licensed courses provide an easy and effective
-          way to:
+          Traffic school can be a valuable resource for improving your driving skills, maintaining low insurance rates, and meeting certain court requirements. At LowBudgetTrafficSchool.com, we provide information and resources to help you explore traffic school options in your area. Whether you need to satisfy a court order, reduce insurance premiums, or enhance your driving knowledge, traffic school can help you achieve your goals. 
         </p>
         {/* ====> attributes */}
         <div className="w-full flex items-start flex-col gap-2 sm:gap-3">
@@ -42,16 +32,11 @@ function WhyGoToTrafficSchool() {
           })}
         </div>
         <p className="text-[16px] md:text-left text-center md:text-[18px] font-normal font-inter">
-          Our mobile-friendly courses are a combination of animated videos,
-          audio clips, 3D driving simulations and text lessons, all of which can
-          be completed 100% online from any computer, laptop, tablet or smart
-          phone. No matter how hectic your schedule, you can always count on Go
-          To Traffic School for an easy, inexpensive and convenient online
-          traffic school experience!
+          By enrolling in traffic school, you can gain valuable knowledge, improve your driving record, and potentially enjoy benefits such as insurance discounts. Take the first step towards a safer and more responsible driving experience by exploring traffic school options today!
         </p>
         {/* ====> enroll now button */}
         <button className="w-[170px] h-[50px] mt-4 sm:mt-8 font-medium text-[20px] text-white-main bg-brand-primary rounded-[10px] capitalize hover:opacity-80">
-          explore now
+          Explore Now
         </button>
       </div>
     </Wrapper>
