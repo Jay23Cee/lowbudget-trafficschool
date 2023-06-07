@@ -5,6 +5,8 @@ import WhyGoToTrafficSchool from "./WhyGoToTrafficSchool";
 import BenefitsOfOnlineTrafficSchool from "./BenefitsOfOnlineTrafficSchool";
 import Faqs from "./Faqs";
 
+import DriverEducationSchool from "./DriverEducationSchool";
+
 
 function Home() {
   return (
@@ -14,7 +16,7 @@ function Home() {
       <WhyGoToTrafficSchool/>
       <BenefitsOfOnlineTrafficSchool/>
       <Faqs/>
-      
+      <DriverEducationSchool/>
     </React.Fragment>
   );
 }
