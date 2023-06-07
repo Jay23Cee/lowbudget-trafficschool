@@ -19,9 +19,10 @@ function Header() {
         {/* ====> logo */}
         <div className="w-[180px] sm:w-[240px] h-[120px] relative">
           <Image
-            src="/assets/logo.png"
+            src="/assets/logo2.png"
             fill
             className="object-contain"
+        
             alt=""
           />
         </div>
@@ -71,7 +72,7 @@ function Header() {
                 <div className="w-full flex justify-between items-center">
                   {/* ===> logo */}
                   <p className="text-[35px] md:text-[50px] font-poppins font-semibold text-white-main">
-                    Logo.
+         
                   </p>
                   <RxCross2
                     onClick={() => setIsOpen(false)}
@@ -103,18 +104,7 @@ function Header() {
                 </div>
                 {/* ====> two buttons */}
                 <div className="flex justify-center items-center flex-col gap-8 mt-8">
-                  {/* =====> contact us button */}
-                  <button className="w-[120px] md:w-[150px] h-[40px] md:h-[45px] bg-brand-primary text-white-main rounded-[10px] hover:opacity-80">
-                    <p className="text-[16px] md:text-[20px] font-inter font-medium capitalize text-white-main">
-                      contact us
-                    </p>
-                  </button>
-                  {/* ======> login button */}
-                  <button className="w-[120px] md:w-[100px] h-[40px] md:h-[45px] bg-transparent border-[2px] border-brand-primary font-inter text-[20px] rounded-[10px] hover:bg-brand-primary hover:opacity-80">
-                    <p className="text-[16px] md:text-[20px] font-inter font-medium capitalize text-white-main">
-                      log in
-                    </p>
-                  </button>
+
                 </div>
               </div>
             </Drawer>

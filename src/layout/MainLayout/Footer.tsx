@@ -13,7 +13,7 @@ function Footer() {
         {/* ====> logo */}
         <div className="w-[180px] sm:w-[240px] h-[120px] relative -mt-6">
           <Image
-            src="/assets/logo.png"
+            src="/assets/logo2.png"
             fill
             className="object-contain"
             alt=""
