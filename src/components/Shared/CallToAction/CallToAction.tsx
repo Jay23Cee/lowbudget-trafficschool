@@ -4,10 +4,20 @@ import OutSideClick from "@/hooks/OutSideClick";
 import { GoLocation } from "react-icons/go";
 import { FiChevronDown } from "react-icons/fi";
 
+
+type StateType = {
+  name: string;
+  affiliateLink: string;
+};
+
 function CallToAction() {
   const [isSticky, setIsSticky] = useState(false);
-  const [IsOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [location, setLocation] = useState("");
+
+  
+  const [selectedState, setSelectedState] = useState<StateType | null>(null);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +33,18 @@ function CallToAction() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleStateSelect = (state:any) => {
+    setLocation(state.name);
+    setSelectedState(state);
+    setIsOpen(false);
+  };
+
+  const handleGetStarted = () => {
+    if (selectedState ) {
+      window.location.href = selectedState.affiliateLink;
+    }
+  };
 
   return (
     <Wrapper
@@ -48,45 +70,42 @@ function CallToAction() {
               />
               <FiChevronDown className="text-[28px] text-[#afb4be] absolute right-3" />
             </div>
-            {IsOpen && (
+            {isOpen && (
               <OutSideClick
                 style="w-full max-h-[500px] srollBar overflow-auto bg-white-main border-[2px] border-solid border-brand-main rounded-[8px] p-3 absolute -top-[20rem] z-30"
                 Event={() => {
                   setIsOpen(false);
                 }}
               >
-                {StatesOfUnited.map((option: any, index: number) => {
-                  return (
-                    <div key={index} className="flex flex-col mb-3">
-                      <div
-                        className={`cursor-pointer flex justify-start hover:text-brand-primary items-center gap-2 ${
-                          location === option.name
-                            ? "text-brand-primary"
-                            : "text-black-main"
-                        } font-sans text-[16px] font-normal`}
-                        key={index}
-                        onClick={() => {
-                          setLocation(option.name);
-                          setIsOpen(false);
-                        }}
-                      >
-                        <GoLocation
-                          className={`text-[22px] ${
-                            Location === option.name && "fill-brand-primary "
-                          } `}
-                        />
-                        {option.name}
-                      </div>
-                      {index + 1 < Location.length && (
-                        <div className="w-[90%] border-b-[2px] border-solid border-brand-primary my-3"></div>
-                      )}
+                {StatesOfUnited.map((state, index) => (
+                  <div key={index} className="flex flex-col mb-3">
+                    <div
+                      className={`cursor-pointer flex justify-start hover:text-brand-primary items-center gap-2 ${
+                        location === state.name
+                          ? "text-brand-primary"
+                          : "text-black-main"
+                      } font-sans text-[16px] font-normal`}
+                      onClick={() => handleStateSelect(state)}
+                    >
+                      <GoLocation
+                        className={`text-[22px] ${
+                          location === state.name && "fill-brand-primary"
+                        }`}
+                      />
+                      {state.name}
                     </div>
-                  );
-                })}
+                    {index + 1 < StatesOfUnited.length && (
+                      <div className="w-[90%] border-b-[2px] border-solid border-brand-primary my-3"></div>
+                    )}
+                  </div>
+                ))}
               </OutSideClick>
             )}
           </div>
-          <button className="w-[180px] h-[45px] bg-white-main rounded-[10px] hover:opacity-90 text-black-main capitalize text-[18px] font-medium">
+          <button
+            className="w-[180px] h-[45px] bg-white-main rounded-[10px] hover:opacity-90 text-black-main capitalize text-[18px] font-medium"
+            onClick={handleGetStarted}
+          >
             get started
           </button>
         </div>
@@ -95,208 +114,208 @@ function CallToAction() {
   );
 }
 
-const StatesOfUnited = [
+export const StatesOfUnited = [
   {
     name: "Alabama",
-    path: "",
+    affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Alaska",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Arizona",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Arkansas",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "California",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Colorado",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Connecticut",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Delaware",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Florida",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Georgia",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Hawaii",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Idaho",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
 
   {
     name: "Illinois",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Indiana",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Iowa",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Kansas",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Kentucky",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Louisiana",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Maine",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Maryland",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Massachusetts",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Michigan",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Minnesota",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Mississippi",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Missouri",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
 
   {
     name: "Montana",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Nebraska",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Nevada",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "New Hampshire",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "New Jersey",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "New Mexico",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "New York",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "North Carolina",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "North Dakota",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Ohio",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Oklahoma",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Oregon",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Pennsylvania",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Rhode Island",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "South Carolina",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "South Dakota",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Tennessee",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Texas",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Utah",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Vermont",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Virginia",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Washington",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "West Virginia",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Wisconsin",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
   {
     name: "Wyoming",
-    path: "",
+     affiliateLink: "http://www.traffic101.com?a_aid=6466716d66623&a_bid=eda15e51&state=alabama",
   },
 ];
 

@@ -4,10 +4,31 @@ import Link from "next/link";
 import OutSideClick from "@/hooks/OutSideClick";
 import { GoLocation } from "react-icons/go";
 import { FiChevronDown } from "react-icons/fi";
+import { StatesOfUnited } from "@/components/Shared/CallToAction/CallToAction";
+
+
+type StateType = {
+  name: string;
+  affiliateLink: string;
+};
+
 
 function Hero() {
-  const [IsOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [location, setLocation] = useState("");
+  const [selectedState, setSelectedState] = useState<StateType | null>(null);
+
+  const handleStateSelect = (state: any) => {
+    setLocation(state.name);
+    setSelectedState(state);
+    setIsOpen(false);
+  };
+
+  const handleGetStarted = () => {
+    if (selectedState) {
+      window.location.href = selectedState.affiliateLink;
+    }
+  };
 
   return (
     <div id="home" className="w-full h-screen md:h-[calc(100vh-136px)] relative bg-[url('/assets/heroBg.jpeg')] bg-no-repeat bg-cover">
@@ -49,64 +70,56 @@ function Hero() {
               />
               <FiChevronDown className="text-[28px] text-[#afb4be] absolute right-3" />
             </div>
-            {IsOpen && (
+            {isOpen && (
               <OutSideClick
                 style="w-full max-h-[500px] srollBar overflow-auto bg-white-main border-[2px] border-solid border-brand-main rounded-[8px] p-3 absolute -top-[240px] z-30"
                 Event={() => {
                   setIsOpen(false);
                 }}
               >
-                {StatesOfUnited.map((option: any, index: number) => {
-                  return (
-                    <div key={index} className="flex flex-col mb-3">
-                      <div
-                        className={`cursor-pointer flex justify-start hover:text-brand-primary items-center gap-2 ${
-                          location === option.name
-                            ? "text-brand-primary"
-                            : "text-black-main"
-                        } font-sans text-[16px] font-normal`}
-                        key={index}
-                        onClick={() => {
-                          setLocation(option.name);
-                          setIsOpen(false);
-                        }}
-                      >
-                        <GoLocation
-                          className={`text-[22px] ${
-                            Location === option.name && "fill-brand-primary "
-                          } `}
-                        />
-                        {option.name}
-                      </div>
-                      {index + 1 < Location.length && (
-                        <div className="w-[90%] border-b-[2px] border-solid border-brand-primary my-3"></div>
-                      )}
+                {StatesOfUnited.map((option, index) => (
+                  <div key={index} className="flex flex-col mb-3">
+                    <div
+                      className={`cursor-pointer flex justify-start hover:text-brand-primary items-center gap-2 ${
+                        location === option.name
+                          ? "text-brand-primary"
+                          : "text-black-main"
+                      } font-sans text-[16px] font-normal`}
+                      onClick={() => handleStateSelect(option)}
+                    >
+                      <GoLocation
+                        className={`text-[22px] ${
+                          location === option.name && "fill-brand-primary"
+                        }`}
+                      />
+                      {option.name}
                     </div>
-                  );
-                })}
+                    {index + 1 < StatesOfUnited.length && (
+                      <div className="w-[90%] border-b-[2px] border-solid border-brand-primary my-3"></div>
+                    )}
+                  </div>
+                ))}
               </OutSideClick>
             )}
           </div>
           {/* ===> get started button */}
-          <button className="w-full max-w-[240px] h-[55px] rounded-[10px] hover:opacity-70 bg-brand-primary">
+          <button
+            className="w-full max-w-[240px] h-[55px] rounded-[10px] hover:opacity-70 bg-brand-primary"
+            onClick={handleGetStarted}
+          >
             <p className="text-[26px] font-inter capitalize text-white-main">
               get started
             </p>
           </button>
         </div>
         {/* ===> */}
-        <div className="flex flex-col">
-
-  
-
-
-        </div>
+        <div className="flex flex-col"></div>
       </div>
     </div>
   );
 }
 
-export default Hero;
+
 
 const Attributes = [
   {
@@ -123,207 +136,4 @@ const Attributes = [
   },
 ];
 
-const StatesOfUnited = [
-  {
-    name: "Alabama",
-    path: "",
-  },
-  {
-    name: "Alaska",
-    path: "",
-  },
-  {
-    name: "Arizona",
-    path: "",
-  },
-  {
-    name: "Arkansas",
-    path: "",
-  },
-  {
-    name: "California",
-    path: "",
-  },
-  {
-    name: "Colorado",
-    path: "",
-  },
-  {
-    name: "Connecticut",
-    path: "",
-  },
-  {
-    name: "Delaware",
-    path: "",
-  },
-  {
-    name: "Florida",
-    path: "",
-  },
-  {
-    name: "Georgia",
-    path: "",
-  },
-  {
-    name: "Hawaii",
-    path: "",
-  },
-  {
-    name: "Idaho",
-    path: "",
-  },
-
-  {
-    name: "Illinois",
-    path: "",
-  },
-  {
-    name: "Indiana",
-    path: "",
-  },
-  {
-    name: "Iowa",
-    path: "",
-  },
-  {
-    name: "Kansas",
-    path: "",
-  },
-  {
-    name: "Kentucky",
-    path: "",
-  },
-  {
-    name: "Louisiana",
-    path: "",
-  },
-  {
-    name: "Maine",
-    path: "",
-  },
-  {
-    name: "Maryland",
-    path: "",
-  },
-  {
-    name: "Massachusetts",
-    path: "",
-  },
-  {
-    name: "Michigan",
-    path: "",
-  },
-  {
-    name: "Minnesota",
-    path: "",
-  },
-  {
-    name: "Mississippi",
-    path: "",
-  },
-  {
-    name: "Missouri",
-    path: "",
-  },
-
-  {
-    name: "Montana",
-    path: "",
-  },
-  {
-    name: "Nebraska",
-    path: "",
-  },
-  {
-    name: "Nevada",
-    path: "",
-  },
-  {
-    name: "New Hampshire",
-    path: "",
-  },
-  {
-    name: "New Jersey",
-    path: "",
-  },
-  {
-    name: "New Mexico",
-    path: "",
-  },
-  {
-    name: "New York",
-    path: "",
-  },
-  {
-    name: "North Carolina",
-    path: "",
-  },
-  {
-    name: "North Dakota",
-    path: "",
-  },
-  {
-    name: "Ohio",
-    path: "",
-  },
-  {
-    name: "Oklahoma",
-    path: "",
-  },
-  {
-    name: "Oregon",
-    path: "",
-  },
-  {
-    name: "Pennsylvania",
-    path: "",
-  },
-  {
-    name: "Rhode Island",
-    path: "",
-  },
-  {
-    name: "South Carolina",
-    path: "",
-  },
-  {
-    name: "South Dakota",
-    path: "",
-  },
-  {
-    name: "Tennessee",
-    path: "",
-  },
-  {
-    name: "Texas",
-    path: "",
-  },
-  {
-    name: "Utah",
-    path: "",
-  },
-  {
-    name: "Vermont",
-    path: "",
-  },
-  {
-    name: "Virginia",
-    path: "",
-  },
-  {
-    name: "Washington",
-    path: "",
-  },
-  {
-    name: "West Virginia",
-    path: "",
-  },
-  {
-    name: "Wisconsin",
-    path: "",
-  },
-  {
-    name: "Wyoming",
-    path: "",
-  },
-];
+export default Hero;
