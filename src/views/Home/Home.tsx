@@ -16,7 +16,7 @@ function Home() {
       <WhyGoToTrafficSchool/>
       <BenefitsOfOnlineTrafficSchool/>
       <Faqs/>
-      <DriverEducationSchool/>
+  
     </React.Fragment>
   );
 }
