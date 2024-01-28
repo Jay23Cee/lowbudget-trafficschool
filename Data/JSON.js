@@ -1,91 +1,108 @@
 export const Data = {
   Navibar: [
     {
-      name: "home",
-      path: "home",
+      name: "Home",
+      path: "/", // Using root path as the home page
+      title: "Home - Start Your Journey to Safe Driving with Our Online Traffic School"
     },
     {
-      name: "attributes",
-      path: "attributes",
+      name: "Attributes",
+      path: "/attributes", // Absolute path
+      title: "Attributes - Discover the Benefits of Our Online Traffic School Courses"
     },
     {
-      name: "faq",
-      path: "faqs",
+      name: "FAQ",
+      path: "/faqs", // Absolute path
+      title: "FAQs - Find Answers to Your Questions About Traffic School Courses"
     },
-
   ],
   Attributes: [
     {
       img: "/assets/check.png",
-      name: "lowest price",
+      alt: "Lowest Price Guarantee Icon",
+      name: "Lowest Price",
+      description: "We offer the most competitive prices for online traffic school courses."
     },
     {
       img: "/assets/user.png",
-      name: "over 4m satisfied users",
+      alt: "Over 4 Million Satisfied Users Icon",
+      name: "Over 4M Satisfied Users",
+      description: "Join over 4 million users who have successfully completed our traffic school courses."
     },
     {
       img: "/assets/sun.png",
-      name: "same day processing",
+      alt: "Same Day Processing Icon",
+      name: "Same Day Processing",
+      description: "Enjoy the convenience of same-day processing for all our traffic school courses."
     },
     {
       img: "/assets/fun.png",
-      name: "fun & interactive",
+      alt: "Fun and Interactive Courses Icon",
+      name: "Fun & Interactive",
+      description: "Our courses are designed to be both fun and interactive, making learning enjoyable."
     },
     {
       img: "/assets/map.png",
-      name: "state licensed",
+      alt: "State Licensed Icon",
+      name: "State Licensed",
+      description: "We are a state-licensed online traffic school, ensuring your course is recognized."
     },
     {
       img: "/assets/responsive.png",
-      name: "can be taken on any device",
+      alt: "Any Device Compatibility Icon",
+      name: "Can Be Taken on Any Device",
+      description: "Our courses are accessible on any device, providing you with the flexibility to learn anywhere."
     },
   ],
   CoursesWeOffer: [
     {
       img: "/assets/course2.png",
-      name: "insurance reduction",
+      alt: "Insurance Reduction Course Icon",
+      name: "Insurance Reduction",
+      description: "Take our insurance reduction course to save money on your car insurance."
     },
     {
       img: "/assets/course1.png",
-      name: "mature driver courses",
+      alt: "Mature Driver Courses Icon",
+      name: "Mature Driver Courses",
+      description: "Our mature driver courses are specifically designed for seasoned drivers to refresh their skills."
     },
     {
       img: "/assets/course3.png",
-      name: "fleet driver training courses",
+      alt: "Fleet Driver Training Courses Icon",
+      name: "Fleet Driver Training Courses",
+      description: "Improve the safety and efficiency of your fleet with our specialized training courses."
     },
     {
       img: "/assets/course4.png",
-      name: "driver's ed courses",
+      alt: "Driver's Ed Courses Icon",
+      name: "Driver's Ed Courses",
+      description: "New drivers can gain valuable skills with our comprehensive driver's education courses."
     },
   ],
-
   faqs: {
-    title: "Driving Faqs",
+    title: "Driving FAQs - Get Informed About Online Traffic School",
+    description: "Have questions about online traffic school? Browse our FAQs for detailed answers and start your learning journey today.",
     rows: [
       {
-        title: "What is Traffic?",
-        content:
-          "Traffic is an online education platform that offers a wide range of courses and learning materials to help you acquire new skills and knowledge from the comfort of your own home. ",
+        title: "What is Online Traffic School?",
+        content: "Online Traffic School provides an education platform that offers a wide range of driving courses, from defensive driving to state-required training, all available online."
       },
       {
-        title: "How does Traffic work?",
-        content:
-          "Traffic provides a user-friendly interface where you can browse through various courses and enroll in the ones that interest you. Once enrolled, you gain access to the course materials, including video lectures, assignments, quizzes, and additional resources.",
+        title: "How Does Online Learning Work?",
+        content: "With our user-friendly platform, you can easily browse and enroll in courses to learn new driving skills at your own pace, with access to rich learning materials."
       },
       {
-        title: "Are the courses on Traffic self-paced?",
-        content:
-          "Yes, Traffic offers self-paced courses, allowing you to learn at your own convenience. You can access the course materials whenever you want and progress through the content at your own speed.",
+        title: "Is Online Learning Self-Paced?",
+        content: "Our courses are designed to fit your schedule, allowing you to start, stop, and resume your learning experience at any time."
       },
       {
-        title: "Can I interact with instructors on Traffic?",
-        content:
-          "Absolutely! Traffic promotes student-instructor interaction through various means such as discussion forums, messaging systems, and live webinars. You can ask questions, seek clarification, and engage in discussions with instructors and fellow learners.",
+        title: "Can I Interact with Instructors?",
+        content: "Yes, our courses offer various ways to communicate with instructors, including forums, messaging, and scheduled live sessions, to ensure you get the support you need."
       },
       {
-        title: "Can I earn a certificate upon completion of a course?",
-        content:
-          "Yes, Traffic provides certificates of completion for many courses. Once you successfully finish a course, you will receive a certificate that you can showcase on your resume or LinkedIn profile to highlight your newly acquired skills.",
+        title: "What Certifications Can I Earn?",
+        content: "Upon course completion, you'll receive a certificate that can often be used for insurance discounts, fulfilling court orders, or showcasing your commitment to safe driving."
       },
     ],
   },
