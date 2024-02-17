@@ -6,15 +6,12 @@ export const Data = {
       title: "Home - Start Your Journey to Safe Driving with Our Online Traffic School"
     },
     {
-      name: "Attributes",
-      path: "/attributes", // Absolute path
-      title: "Attributes - Discover the Benefits of Our Online Traffic School Courses"
-    },
-    {
-      name: "FAQ",
-      path: "/faqs", // Absolute path
-      title: "FAQs - Find Answers to Your Questions About Traffic School Courses"
-    },
+      name: "About",
+      path: "/About",
+      title: "About lowbudgettrafficschool.com - Your Partner in finding low budget traffic and Driving Education",
+      description: "Learn more about LowBudgetTrafficSchool.com, your trusted ally in the journey towards safer driving and comprehensive traffic education."
+    }
+
   ],
   Attributes: [
     {
