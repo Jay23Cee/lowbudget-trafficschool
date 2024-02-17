@@ -20,7 +20,7 @@ function Header() {
         <div className="w-[180px] sm:w-[240px] h-[120px] relative">
           <Link href="/">
             <span onClick={closeDrawer}>
-              <Image src="/assets/logobugettraffic_logo.png" fill className="object-contain" alt="" />
+              <Image src="/assets/lowbugettraffic_logo.png" fill className="object-contain" alt="" />
             </span>
           </Link>
         </div>
