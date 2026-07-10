@@ -1,3 +1,10 @@
-node_modules
+node_modules/
 .next/
-_MACOSX/
+out/
+*.log
+*.tsbuildinfo
+.DS_Store
+__MACOSX/
+.env
+.env.*
+!.env.example

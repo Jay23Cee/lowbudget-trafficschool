@@ -8,7 +8,61 @@
   box-sizing: border-box;
 }
 html {
-  background-color: white;
+  background-color: #f7f5ed;
+  scroll-padding-top: 96px;
+}
+body {
+  background-color: #f7f5ed;
+  color: #0a0a0a;
+  font-family: Inter, sans-serif;
+}
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #ffd400;
+  outline-offset: 3px;
+}
+::selection {
+  background-color: #fff3a3;
+  color: #0a0a0a;
+}
+
+.state-choice-hero {
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(3, 12, 25, 0.86) 0%, rgba(3, 12, 25, 0.72) 52%, rgba(3, 12, 25, 0.82) 100%),
+    url('/assets/traffic-school-hero.png') center / cover no-repeat;
+}
+
+.state-choice-hero::before,
+.state-choice-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.state-choice-hero::before {
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: rotate(-8deg) scale(1.18);
+}
+
+.state-choice-hero::after {
+  opacity: 0.1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 212, 0, 0.2), transparent 22rem),
+    repeating-linear-gradient(
+      122deg,
+      transparent 0,
+      transparent 74px,
+      rgba(255, 255, 255, 0.16) 75px,
+      rgba(255, 255, 255, 0.16) 77px,
+      transparent 78px,
+      transparent 148px
+    );
 }
 
 /* shadows  */
@@ -19,7 +73,7 @@ html {
 /* =====> styles for drawer */
 .drawer {
   width: 50% !important;
-  background-color: #101014 !important;
+  background-color: #0a0a0a !important;
 }
 .slick-prev,
 .slick-next {
@@ -27,10 +81,10 @@ html {
 }
 
 .slick-prev::before {
-  color: #fd4c1d !important;
+  color: #c58b00 !important;
 }
 .slick-next::before {
-  color: #fd4c1d !important;
+  color: #c58b00 !important;
 }
 .sldierCard {
   display: flex !important;
@@ -39,7 +93,7 @@ html {
 }
 .slick-dots li button:before {
   font-size: 10px !important;
-  color: #fd4c1d !important;
+  color: #c58b00 !important;
 }
 
 .slick-list {
@@ -85,7 +139,7 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   /* background: #888; */
-  background-color: #fd4c1d;
+  background-color: #ffd400;
 }
 /* ======> specific div scroll bar */
 
@@ -97,7 +151,7 @@ html {
   border-radius: 30px;
 }
 .srollBar::-webkit-scrollbar-thumb {
-  background-color: #fd4c1d;
+  background-color: #ffd400;
   border-radius: 30px;
 }
 /* =====> faq styles */
@@ -121,7 +175,7 @@ html {
 .row-content-text {
   font-family: inter;
   font-size: 16px !important;
-  color: #fd4c1d !important;
+  color: #8a6400 !important;
   user-select: none;
 }
 @media screen and (max-width: 400px) {

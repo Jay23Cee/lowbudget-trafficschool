@@ -1,38 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Low Budget Traffic School
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Low Budget Traffic School is a Next.js and TypeScript affiliate referral site. It publishes state-by-state traffic school guides and sends visitors to third-party providers through server-side affiliate redirects.
+
+This repository does not operate traffic school courses, enforce seat time, issue certificates, or store student records.
+
+## Active routes
+
+- `/` national directory and state selector
+- `/california` California-focused guide
+- `/about`, `/privacy`, `/terms`, and `/affiliate-disclosure` trust pages
+- `/online-traffic-school/[state]` 50 statically generated state guides
+- `/go/[state]` validated state affiliate redirect
+- `/go/trafficschool101` default provider redirect
+- `/sitemap.xml` server-rendered sitemap
+
+The redirect and sitemap routes require a Node-capable Next.js host such as Vercel. This app is not configured for static export.
+
+## Requirements and deployment
+
+- Node.js 20 or newer
+- npm 10 or newer
+- `package-lock.json` is the canonical lockfile
+
+Create deployment variables from `.env.example`. `NEXT_PUBLIC_SITE_URL` must be an HTTP or HTTPS origin without a path, query, or hash. `NEXT_PUBLIC_GA_MEASUREMENT_ID` is optional and is used only when it matches a valid Google Analytics measurement ID.
+
+Typical deployment commands:
+
+```bash
+npm ci
+npm run verify
+npm run start
+```
+
+For Vercel, use the Next.js preset, set the environment variables, and use `npm run build` as the build command. Do not deploy the local `.next`, `out`, log, or cache directories.
+
+## Content
+
+State editorial content lives in `src/content/states/*.md`. Each file must match a state slug and include the validated frontmatter fields:
+
+`stateName`, `slug`, `seoTitle`, `seoDescription`, `hero`, `intro`, `eligibility`, `faq`, and `lastReviewed`.
+
+The production build validates complete 50-state coverage, slug/file matches, unique SEO metadata, affiliate configuration, HTTPS destinations, and known routes. The content seeding script only creates missing files:
+
+```bash
+node scripts/generate-state-content.mjs
+```
+
+## Affiliate redirects
+
+All state entries currently use the HTTPS TrafficSchool101 fallback destination until a state-specific destination is verified. Required tracking parameters are protected from query-string overrides. Unknown state slugs are rejected rather than silently falling back.
+
+Update `src/data/affiliate-links.ts` when provider destinations or tracking parameters change, then run `npm run verify`.
+
+## SEO, analytics, and sitemap
+
+Metadata is assembled in `src/lib/seo.tsx` using `NEXT_PUBLIC_SITE_URL`. Open Graph images use `/assets/traffic-school-og.png`. State pages include breadcrumb and FAQ structured data.
+
+The sitemap includes the core public pages and all state guides, but not redirect routes. It is served as XML with production caching headers.
+
+## Commands
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm run lint
+npm run test
+npm run build
+npm run verify
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm run test` performs the strict TypeScript check. `npm run verify` runs lint, typecheck, and the production build in sequence.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Repository hygiene
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Keep `package.json`, `package-lock.json`, `tsconfig.json`, and `.eslintrc.json` as project configuration. Generated Next output, macOS metadata, editor logs, OCCT files, duplicate lockfiles, and unused legacy UI are intentionally excluded from the repository.
