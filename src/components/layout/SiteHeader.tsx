@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { FaArrowRight, FaBars, FaTimes } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+import { FaArrowRight, FaBars, FaHome, FaTimes } from 'react-icons/fa'
 
 const HEADER_LINKS = [
   { href: '/california', label: 'California Guide' },
@@ -10,7 +11,9 @@ const HEADER_LINKS = [
 ]
 
 export function SiteHeader() {
+  const router = useRouter()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isHomePage = router.pathname === '/'
 
   function closeMobileMenu(): void {
     setIsMobileMenuOpen(false)
@@ -36,6 +39,17 @@ export function SiteHeader() {
         </Link>
         <nav aria-label='Main navigation' className='flex items-center gap-2'>
           <ul className='hidden items-center gap-1 text-sm font-medium text-slate-700 lg:flex'>
+            {isHomePage ? null : (
+              <li>
+                <Link
+                  href='/'
+                  className='inline-flex min-h-10 items-center gap-2 rounded-md px-3 py-2 transition hover:bg-brand-surface hover:text-brand-ink focus-visible:bg-brand-surface'
+                >
+                  <FaHome aria-hidden='true' />
+                  Home
+                </Link>
+              </li>
+            )}
             {HEADER_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -76,6 +90,16 @@ export function SiteHeader() {
           className='border-t border-brand-border bg-white px-4 py-4 shadow-lg lg:hidden'
         >
           <div className='mx-auto grid w-full max-w-7xl gap-2 text-sm font-semibold text-slate-700'>
+            {isHomePage ? null : (
+              <Link
+                href='/'
+                className='flex min-h-11 items-center gap-2 rounded-md px-3 py-2 transition hover:bg-brand-surface hover:text-brand-ink'
+                onClick={closeMobileMenu}
+              >
+                <FaHome aria-hidden='true' />
+                Home
+              </Link>
+            )}
             {HEADER_LINKS.map((link) => (
               <Link
                 key={link.href}
